@@ -1,53 +1,20 @@
 def isValid(s):
-    convertString = []
-    convertString[:0] = s
+    stack = []
+    for char in s:
+        if char == "(" or char == "{" or char == "[":
+            stack.append(char)
+        else:
+            if not stack:
+                    return False
+            if char == ')' and stack[-1] == '(':
+                    stack.pop()
+            elif char == '}' and stack[-1] == '{':
+                    stack.pop()
+            elif char == ']' and stack[-1] == '[':
+                    stack.pop()
+            else:
+                    return False
+    return not stack
 
-    for i in range(0, len(convertString)):
-        if convertString[i] == "[":
-            for j in range(0, len(convertString)):
-                if convertString[j] == "]":
-                    convertString[j] = 0
-                    convertString[i] = 0
-                    break
-        elif convertString[i] == "]":
-            for j in range(0, len(convertString)):
-                if convertString[j] == "[":
-                    convertString[j] = 0
-                    convertString[i] = 0
-                    break
-        elif convertString[i] == "(":
-            for j in range(0, len(convertString)):
-                if convertString[j] == ")":
-                    convertString[j] = 0
-                    convertString[i] = 0
-                    break
-        elif convertString[i] == ")":
-            for j in range(0, len(convertString)):
-                if convertString[j] == "(":
-                    convertString[j] = 0
-                    convertString[i] = 0
-                    break
-        elif convertString[i] == "{":
-            for j in range(0, len(convertString)):
-                if convertString[j] == "}":
-                    convertString[j] = 0
-                    convertString[i] = 0
-                    break
-        elif convertString[i] == "}":
-            for j in range(0, len(convertString)):
-                if convertString[j] == "{":
-                    convertString[j] = 0
-                    convertString[i] = 0
-                    break
-    
-    count = 0
-    for i in range(0, len(convertString)):
-        if convertString[i] == 0:
-            count = count + 1
-    if count == len(convertString):
-        return "true"
-    else: 
-        return "false"
-
-s = "(]"
+s = "([])"
 print(isValid(s))
