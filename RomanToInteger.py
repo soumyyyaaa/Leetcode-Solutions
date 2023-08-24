@@ -28,5 +28,5 @@ def roman(s):
     convertedNum = convertedNum + numeric[-1]
     return convertedNum
 
-s= "MMMCDXC"
+s= "MMM"
 print(roman(s))

@@ -1,19 +1,19 @@
 def removeElement(nums, val):
-    empty = []
-    count = 0
-    count_val = 0
-    for i in range(0, len(nums)):
-        if nums[i] != val:
-            empty.append(nums[i])
-            count_val += 1
-        else: 
-            count += 1
-    for i in range(0, count):
-        empty.append(0)
-    nums = empty
-    
-    return count_val, nums
+    removed_val_count = 0
+    i = 0
+    while i < len(nums):
+        if nums[i] == val:
+            removed_val_count += 1
+            for j in range(i, len(nums) - 1):
+                nums[j] = nums[j+1]
+            nums.pop()
+            nums.append(-1)
+            i -= 1
+        else:
+            i += 1
 
-nums = [3,2,2,3]
-val = 3
+    return  len(nums)-removed_val_count,nums
+
+nums = [0,1,2,2,3,0,4,2]
+val = 2
 print(removeElement(nums,val))

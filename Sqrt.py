@@ -1,6 +1,5 @@
 import math
 
-
 def mySqrt(x):
     return int(math.floor(pow(x, 0.5)))
 
