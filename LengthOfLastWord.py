@@ -1,6 +1,5 @@
 def lengthOfLastWord(s):
-    l = []
-    l[:0] = s
+    l = list(s)
     count = 0
     index = 0
     l.reverse()
