@@ -1,5 +1,4 @@
-def Question(str_arr):
-    output_arr = []
+def calPoints(operations):
     # i = 0
     # while i < len(str_arr):
     #     if str_arr[i] == "C":
@@ -18,7 +17,8 @@ def Question(str_arr):
     #     else:
     #         output_arr.append(int(str_arr[i]))
     #         i += 1
-    for element in str_arr:
+    output_arr = []
+    for element in operations:
         if element == 'D':
             double = output_arr[-1] * 2
             output_arr.append(double)
@@ -35,5 +35,5 @@ def Question(str_arr):
             output_arr.append(int(element))
     return sum(output_arr)
 
-arr = ['3', '5', '+', '2', 'C', '5', 'D', '1']
-print(Question(arr))
+operations = ['3', '5', '+', '2', 'C', '5', 'D', '1']
+print(calPoints(operations))

@@ -1,14 +1,16 @@
 def isAnagram(s, t):
-    # s = list(s)
-    # t = list(t)
+    s = list(s)
+    t = list(t)
     s.sort()
     t.sort()
-    for letter in s:
-        for character in t:
-            if letter != character:
+    if len(s) != len(t):
+        return False
+    else:
+        for i in range(0, len(s)):
+            if s[i] != t[i]:
                 return False
     return True
 
-s = "anagram"
-t = "nagaram"
+s = "bat"
+t = "tab"
 print(isAnagram(s, t))
