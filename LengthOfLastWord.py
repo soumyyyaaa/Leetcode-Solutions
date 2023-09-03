@@ -1,20 +1,12 @@
 def lengthOfLastWord(s):
-    l = list(s)
     count = 0
-    index = 0
-    l.reverse()
-
-    if l[0] == " ":
-        for i in range(1, len(l)):
-            if l[i] != " ":
-                index = i
-                break
-
-    for i in range(index, len(l)):
-        if l[i] != " ":
+    s = "".join(reversed(s.strip()))
+    for char in s:
+        if char != " ":
             count += 1
-        else:
+        else: 
             break
+    
     return count
 
 s = "luffy is still joyboy     "
